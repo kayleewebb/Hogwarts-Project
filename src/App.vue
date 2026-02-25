@@ -20,9 +20,9 @@
                                 <input 
                                   type="text" 
                                   class="quantity-input" 
-                                  :value="shoppingCartItems[0].quantity" 
+                                  v-model.number="shoppingCartItems[0].quantity"
                                   aria-label="quantity"
-                                  @blur="changeQuantity(shoppingCartItems[0].id, $event)">
+                                  />
                                 <button class="quantity-change-button"@click="increaseOne(shoppingCartItems[0].id)">+</button>
                             </div>
                             <button class="remove-item">✕</button>
@@ -224,13 +224,6 @@ function increaseOne(id) {
   })
 }
 
-function changeQuantity(id, event){
-    shoppingCartItems.value.some(item =>{
-        if(item.id == id){
-            item.quantity = parseInt(event.target.value)
-        }
-    })
-}
 </script>
 
 <style scoped>
